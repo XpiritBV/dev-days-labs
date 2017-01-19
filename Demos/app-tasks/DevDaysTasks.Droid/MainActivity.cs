@@ -9,6 +9,7 @@ using Android.Widget;
 using Android.OS;
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace DevDaysTasks.Droid
 {
@@ -20,14 +21,13 @@ namespace DevDaysTasks.Droid
     {
 		protected override void OnCreate (Bundle bundle)
 		{
-            FormsAppCompatActivity.ToolbarResource = Resource.Layout.toolbar;
-            FormsAppCompatActivity.TabLayoutResource = Resource.Layout.tabs;
+            ToolbarResource = Resource.Layout.toolbar;
+            TabLayoutResource = Resource.Layout.tabs;
 
             base.OnCreate (bundle);
 
-			Forms.Init (this, bundle);
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-            
+            CurrentPlatform.Init();
+            Forms.Init (this, bundle);
 			LoadApplication (new App ());
 		}
 	}
